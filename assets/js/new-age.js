@@ -107,8 +107,16 @@ if($("#reader").length)
                 /* verbose= */ false);
 
     html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+    if (searchParams.has("showLogos"))
+    {
+        $("#loginImage").css("background", "url('background/image.png') repeat-y");
+        $("#loginImage").css("background-size", "contain");
+    }
 }
 else if(!searchParams.has("userId"))
     window.location.replace("login.html");
 else
+{   
+    $("#wrapper").show();
     $("#userId").html(searchParams.get("userId"));
+}
